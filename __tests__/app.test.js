@@ -28,7 +28,7 @@ describe('app routes', () => {
       return client.end(done);
     });
 
-    test('returns pets', async() => {
+    test('creates a pet', async() => {
 
       const expectation = [
         {
@@ -42,25 +42,97 @@ describe('app routes', () => {
       ];
 
       const data = await fakeRequest(app)
-        .get('/pets')
+        .post('/api/pets')
+        .send({
+          name: 'Sparky',
+          birthday: '2010-03-29',
+          type: 'Dog',
+          owner_id: expect.any(Number)
+        })
+        .set('Authorization', token)
         .expect('Content-Type', /json/)
         .expect(200);
 
       expect(data.body).toEqual(expectation);
     });
 
-    test('returns sign', async() => {
 
-      const expectation = 'Capricorn';
+    test('returns pets', async() => {
+
+      const expectation = {
+        id: expect.any(Number),
+        name: 'Sparky',
+        birthday: '2010-03-29',
+        type: 'Dog',
+        owner_id: expect.any(Number)
+      };
 
       const data = await fakeRequest(app)
-        .get('/sign?date=2000-01-01')
+        .get('/api/pets')
+        .set('Authorization', token)
         .expect('Content-Type', /json/)
         .expect(200);
-      
-      expect(JSON.parse(data.text)).toEqual(expectation);
-      // expect(data.body).toEqual(expectation);
+
+      expect(data.body).toEqual(expect.arrayContaining([expectation]));
     });
+
+    test('updates a pet', async() => {
+
+      const expectation = {
+        id: 2,
+        name: 'Bob',
+        birthday: '2010-03-29',
+        type: 'Dog',
+        owner_id: expect.any(Number)
+      };
+
+      const update = {
+        name: 'Bob',
+        birthday: '2010-03-29',
+        type: 'Dog',
+      };
+
+      const data = await fakeRequest(app)
+        .put('/api/pets/2')
+        .send(update)
+        .set('Authorization', token)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual([expectation]);
+    });
+
+    test('deletes a pet', async() => {
+
+      const expectation = {
+        id: 2,
+        name: 'Bob',
+        birthday: '2010-03-29',
+        type: 'Dog',
+        owner_id: expect.any(Number)
+      };
+
+      const data = await fakeRequest(app)
+        .delete('/api/pets/2')
+        .set('Authorization', token)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual([expectation]);
+    });
+
+    // test('returns sign', async() => {
+
+    //   const expectation = 'Capricorn';
+
+    //   const data = await fakeRequest(app)
+    //     .get('/sign?date=2000-01-01')
+    //     .expect('Content-Type', /json/)
+    //     .expect(200);
+      
+    //   expect(JSON.parse(data.text)).toEqual(expectation);
+    //   // expect(data.body).toEqual(expectation);
+    // });
 
     test('returns horoscope', async() => {
 
