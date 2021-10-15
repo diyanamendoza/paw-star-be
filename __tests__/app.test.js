@@ -48,5 +48,44 @@ describe('app routes', () => {
 
       expect(data.body).toEqual(expectation);
     });
+
+    test('returns sign', async() => {
+
+      const expectation = 'Capricorn';
+
+      const data = await fakeRequest(app)
+        .get('/sign?date=2000-01-01')
+        .expect('Content-Type', /json/)
+        .expect(200);
+      
+      expect(JSON.parse(data.text)).toEqual(expectation);
+      // expect(data.body).toEqual(expectation);
+    });
+
+    test('returns horoscope', async() => {
+
+      const expectation = {
+        date_range: expect.any(String),
+        current_date: expect.any(String),
+        description: expect.any(String),
+        compatibility: expect.any(String),
+        mood: expect.any(String),
+        color: expect.any(String),
+        lucky_number: expect.any(String),
+        lucky_time: expect.any(String),
+      };
+
+      const data = await fakeRequest(app)
+        .post('/horoscope?sign=aries')
+        // .send({ sign: 'aries' })
+        .expect('Content-Type', /json/)
+        .expect(200);
+      const parsedData = JSON.parse(data.text);
+      expect(parsedData).toEqual(expectation);
+
+    });
+
+
+  //KEEP THESE BELOW    
   });
 });
