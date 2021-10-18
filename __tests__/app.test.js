@@ -18,7 +18,9 @@ describe('app routes', () => {
         .post('/auth/signup')
         .send({
           email: 'jon@user.com',
-          password: '1234'
+          password: '1234',
+          sign: 'pisces',
+          zipcode: 97216
         });
       
       token = signInData.body.token; // eslint-disable-line
@@ -34,7 +36,7 @@ describe('app routes', () => {
         {
           id: expect.any(Number),
           name: 'Sparky',
-          birthday: '2010-03-29',
+          sign: 'aries',
           type: 'Dog',
           owner_id: expect.any(Number)
         }
@@ -45,7 +47,7 @@ describe('app routes', () => {
         .post('/api/pets')
         .send({
           name: 'Sparky',
-          birthday: '2010-03-29',
+          sign: 'aries',
           type: 'Dog',
           owner_id: expect.any(Number)
         })
@@ -62,7 +64,7 @@ describe('app routes', () => {
       const expectation = {
         id: expect.any(Number),
         name: 'Sparky',
-        birthday: '2010-03-29',
+        sign: 'aries',
         type: 'Dog',
         owner_id: expect.any(Number)
       };
@@ -81,14 +83,14 @@ describe('app routes', () => {
       const expectation = {
         id: 2,
         name: 'Bob',
-        birthday: '2010-03-29',
+        sign: 'aries',
         type: 'Dog',
         owner_id: expect.any(Number)
       };
 
       const update = {
         name: 'Bob',
-        birthday: '2010-03-29',
+        sign: 'aries',
         type: 'Dog',
       };
 
@@ -107,7 +109,7 @@ describe('app routes', () => {
       const expectation = {
         id: 2,
         name: 'Bob',
-        birthday: '2010-03-29',
+        sign: 'aries',
         type: 'Dog',
         owner_id: expect.any(Number)
       };
@@ -121,6 +123,7 @@ describe('app routes', () => {
       expect(data.body).toEqual([expectation]);
     });
 
+    //TEST BELOW COMMENTED OUT - PASSING LOCALLY ONLY
     // test('returns sign', async() => {
 
     //   const expectation = 'Capricorn';
