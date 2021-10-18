@@ -15,11 +15,11 @@ async function run() {
       usersData.map(user => {
         const hash = bcrypt.hashSync(user.password, 8);
         return client.query(`
-                      INSERT INTO users (email, hash)
-                      VALUES ($1, $2)
+                      INSERT INTO users (email, hash, sign, zipcode)
+                      VALUES ($1, $2, $3, $4)
                       RETURNING *;
                   `,
-        [user.email, hash]);
+        [user.email, hash, user.sign, user.zipcode]);
       })
     );
       
@@ -28,10 +28,10 @@ async function run() {
     await Promise.all(
       pets.map(pet => {
         return client.query(`
-                    INSERT INTO pets (name, birthday, type, owner_id)
+                    INSERT INTO pets (name, sign, type, owner_id)
                     VALUES ($1, $2, $3, $4);
                 `,
-        [pet.name, pet.birthday, pet.type, user.id]);
+        [pet.name, pet.sign, pet.type, user.id]);
       })
     );
     

@@ -15,12 +15,14 @@ async function run() {
                 CREATE TABLE users (
                     id SERIAL PRIMARY KEY,
                     email VARCHAR(256) NOT NULL,
-                    hash VARCHAR(512) NOT NULL
+                    hash VARCHAR(512) NOT NULL,
+                    sign VARCHAR(512) NOT NULL,
+                    zipcode INTEGER NOT NULL
                 );           
                 CREATE TABLE pets (
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
-                    birthday VARCHAR(512) NOT NULL,
+                    sign VARCHAR(512) NOT NULL,
                     type VARCHAR(512) NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );
