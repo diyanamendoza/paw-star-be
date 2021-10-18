@@ -22,7 +22,7 @@ async function run() {
                 CREATE TABLE pets (
                     id SERIAL PRIMARY KEY NOT NULL,
                     name VARCHAR(512) NOT NULL,
-                    birthday VARCHAR(512) NOT NULL,
+                    sign VARCHAR(512) NOT NULL,
                     type VARCHAR(512) NOT NULL,
                     owner_id INTEGER NOT NULL REFERENCES users(id)
             );

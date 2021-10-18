@@ -28,10 +28,10 @@ async function run() {
     await Promise.all(
       pets.map(pet => {
         return client.query(`
-                    INSERT INTO pets (name, birthday, type, owner_id)
+                    INSERT INTO pets (name, sign, type, owner_id)
                     VALUES ($1, $2, $3, $4);
                 `,
-        [pet.name, pet.birthday, pet.type, user.id]);
+        [pet.name, pet.sign, pet.type, user.id]);
       })
     );
     
