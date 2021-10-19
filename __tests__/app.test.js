@@ -124,18 +124,18 @@ describe('app routes', () => {
     });
 
 
-    test('returns sign', async() => {
+    // test('returns sign', async() => {
 
-      const expectation = 'Capricorn';
+    //   const expectation = 'Capricorn';
 
-      const data = await fakeRequest(app)
-        .get('/sign?date=2000-01-01')
-        .expect('Content-Type', /json/)
-        .expect(200);
+    //   const data = await fakeRequest(app)
+    //     .get('/sign?date=2000-01-01')
+    //     .expect('Content-Type', /json/)
+    //     .expect(200);
       
-      expect(JSON.parse(data.text)).toEqual(expectation);
-      // expect(data.body).toEqual(expectation);
-    });
+    //   expect(JSON.parse(data.text)).toEqual(expectation);
+    //   // expect(data.body).toEqual(expectation);
+    // });
 
     test('returns horoscope', async() => {
 
