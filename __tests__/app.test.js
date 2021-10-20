@@ -160,6 +160,55 @@ describe('app routes', () => {
 
     });
 
+    test('returns array of quotes', async() => {
+
+      const expectation = {
+        text: expect.any(String),
+        author: expect.any(String),
+      };
+
+      const data = await fakeRequest(app)
+        .get('/dailyquote')
+        .expect('Content-Type', /json/)
+        .expect(200);
+      const parsedData = JSON.parse(data.text);
+      expect(parsedData).toEqual(expect.arrayContaining([expectation]));
+
+    });
+    
+    test('returns yelp data', async() => {
+
+      const expectation = {
+        name: expect.any(String),
+        category: expect.any(Array),
+        url: expect.any(String),
+        distance: expect.any(Number)
+      };
+
+      const data = await fakeRequest(app)
+        .get('/yelp?location=97216')
+        .expect('Content-Type', /json/)
+        .expect(200);
+      const parsedData = JSON.parse(data.text);
+      expect(parsedData).toEqual(expect.arrayContaining([expectation]));
+
+    });
+
+    test('returns random words list', async() => {
+
+      const expectation = {
+        word: expect.any(String)
+      };
+
+      const data = await fakeRequest(app)
+        .get('/randomwordlist')
+        .expect('Content-Type', /json/)
+        .expect(200);
+        
+      const parsedData = JSON.parse(data.text);
+      expect(parsedData).toEqual(expect.arrayContaining([expectation]));
+
+    });
 
   //KEEP THESE BELOW    
   });
