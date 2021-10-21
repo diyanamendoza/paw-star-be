@@ -37,9 +37,9 @@
 - [Daily Quote](https://type.fit/api/quotes)
 
 #### Libraries, frameworks, and packages used:
+- [Heroku Deployed Back-End](https://shielded-savannah-39977.herokuapp.com/)
 - Node.js
 - PostgresSQL
-- [Heroku Deployed Back-End](https://shielded-savannah-39977.herokuapp.com/)
 - Express
 - bcryptjs
 - dotenv
