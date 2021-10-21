@@ -1,46 +1,47 @@
-The name of the project
-Paw-Star
+# Paw-Star
+### Elijah Prosperie
+- [LinkedIn](https://www.linkedin.com/in/elijahprosperie/)
+- [GitHub](https://github.com/ProsperieEli)
 
-Names of the team members
-Katie, Diyana, Elijah, Sarani
+### Katie Schrattenholzer
+- [LinkedIn](https://www.linkedin.com/in/k-schrattenholzer/)
+- [GitHub](https://github.com/k-schrattenholzer)
 
-A description of the project
-This project connects multple third party API's to provide our front-end with the access to retrieving a user's/pet's sign and horoscope. 
+### Diyana Mendoza
+- [LinkedIn](https://www.linkedin.com/in/diyana-mendoza-price/)
+- [GitHub](https://github.com/diyanamendoza)
+### Emily Sarani
+- [LinkedIn](https://www.linkedin.com/in/emily-sarani-2b3074135/)
+- [GitHub](https://github.com/EmilyDSarani)
+<br>
+<br>
 
-A list of any libraries, frameworks, or packages that your application requires in order to properly function:
-Node.js, Postgres, Heroku, bcryptjs, cors, dotenv, express, jsonwebtoken, morgan, pg, superagent,
+### This app gives users a simple and straightforward way to look up their pet's signs and use their daily horoscope to understand their pet's mood at a glance. 
+<br>
 
-Clearly defined API endpoints with sample responses:
-endpoint: get('/api/pets') 
-response: 
- [
-    {id: 12, name: 'Cutie ', sign: 'Gemini', type: 'dog', owner_id: 7}, 
-    {id: 13, name: 'Patootie ', sign: 'Aries', type: 'cat', owner_id: 7} 
- ]
+#### User Story:
+1. Login, or create a user profile 
+1. Redirect to the Pets page, where pets can be added 
+1. Directed to the paw-strology page to see a list of their pets, with a daily horoscope, mood, and compatibility message for each given pet
 
+#### Endpoints:
+- Get
+- Post
+- Delete
 
+#### API's used:
+- [ZodiacSign](https://rapidapi.com/hajderr/api/zodiac-sign)
+- [Aztro](https://github.com/sameerkumar18/aztro)
+- [Yelp](https://www.yelp.com/developers/documentation/v3)
+- [Data Muse](https://www.datamuse.com/api/)
+- [Daily Quote](https://type.fit/api/quotes)
 
-endpoint: post('/api/pets'').send({id: 14, name: 'Spooky ', sign: 'Taurus', type: 'cat', owner_id: 7})
-response:  
-     {id: 14, name: 'Spooky ', sign: 'Taurus', type: 'cat', owner_id: 7}
- 
-endpoint: delete('/api/pets/:id') 
-response:  
-{}
-
-endpoint: post('/horoscope') 
-response:   
-
-endpoint: get('/yelp') 
-response:   
-
-endpoint: get('/dailyquote') 
-response:   
-
-endpoint: get('/randomwordlist') 
-response:   
-
-   
-
-
-Clearly defined database schemas:
+#### Libraries, frameworks, and packages used:
+- [Heroku Deployed Back-End](https://shielded-savannah-39977.herokuapp.com/)
+- Node.js
+- PostgresSQL
+- Express
+- bcryptjs
+- dotenv
+- cors 
+- superagent 
