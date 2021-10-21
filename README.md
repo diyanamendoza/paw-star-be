@@ -39,7 +39,7 @@
 #### Libraries, frameworks, and packages used:
 - Node.js
 - PostgresSQL
-- Heroku
+- [Heroku Deployed Back-End](https://shielded-savannah-39977.herokuapp.com/)
 - Express
 - bcryptjs
 - dotenv
