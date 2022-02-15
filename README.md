@@ -13,11 +13,6 @@
 ### Emily Sarani
 - [LinkedIn](https://www.linkedin.com/in/emily-sarani-2b3074135/)
 - [GitHub](https://github.com/EmilyDSarani)
-<br>
-<br>
-
-### This app gives users a simple and straightforward way to look up their pet's signs and use their daily horoscope to understand their pet's mood at a glance. 
-<br>
 
 #### User Story:
 1. Login, or create a user profile 
